@@ -1,0 +1,9 @@
+.vs/CompressorDecompressor/v14/.suo
+DeCompressor/Release/
+Compressor/Release/
+Release/
+Compressor/Compressor.vcxproj.user
+CompressorDecompressor.VC.db
+AppData/CompressedData.bin
+AppData/OriginalData.txt
+AppData/RMSValues.csv
