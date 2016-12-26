@@ -141,7 +141,7 @@ int main(int argc, char* argv[])
 }
 
 /*
-*	Function:SavePreviousData
+*	Function: SavePreviousData
 *	-----------------------------------
 *	Description: Reads the current data and the number of bits to be saved in the current data .
 *				 ANDs the current data with the help of bitMasks to generate the saved data
@@ -155,7 +155,7 @@ int SavePreviousData(int currentData, int bitsToSave)
 	return currentData & bitMasks[bitsToSave];
 }/*
 
-/*	Function:DecompressAndCalculateRMS
+/*	Function: DecompressAndCalculateRMS
 *	-----------------------------------
 *	Description: Reads the extracted compressed value and decompressed it.				 
 *	Parameters:

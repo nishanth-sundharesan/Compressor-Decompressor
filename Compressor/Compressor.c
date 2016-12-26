@@ -2,7 +2,7 @@
 *	The following program is used to compress a floating point number by some number of bits. This number of bits is taken as an input from the command line.
 *	It then prints the compressed value to a binary file in a bit stream format.
 *	Logic for compressing the data:
-*		1. We first read all the floating point values present in the data set and calculate the minimum and maximum values of the data set.
+*		1. We first read all the floating point values present in the dataset and calculate the minimum and maximum values of the dataset.
 *		2. We know that the floating point values should be compressed by some number of bits from the input. Let's call it compressionBitLength.
 *		3. So the total values that can be generated from the compressionBitLength is 2^compressionBitLength. i.e 0 to (2^compressionBitLength) - 1.
 *		4. Based on the minimum and maximum values of the data set, we will represent the floating point values as an integer value between 0 and (2^compressionBitLength) - 1.
@@ -84,12 +84,12 @@ int main(int argc, char* argv[])
 	/************************************************************************/
 	quantumLength = (maxValue - minValue) / (segmentLength - 1);											//Calculating the quantumLength or bucketLength based on the minimum and maximum values
 
-	/******* Writing the minimum, maximum, compressionBitLength & the number of values in the data ******/
+	/******* Writing the minimum, maximum, compressionBitLength & the number of values in the dataset to the compressed binary file ******/
 	fwrite(&minValue, sizeof(double), 1, compressedDataToWrite);
 	fwrite(&maxValue, sizeof(double), 1, compressedDataToWrite);
 	fwrite(&compressionBitLength, sizeof(unsigned short), 1, compressedDataToWrite);
 	fwrite(&dataCount, sizeof(int), 1, compressedDataToWrite);
-	/****************************************************************************************************/
+	/*************************************************************************************************************************************/
 
 	rewind(originalDataToWrite);																			//Setting the file pointer to the beginning of the file
 	unsigned short binaryOutputLength = MAX_COMPRESSION_BITS;												//The max number of bits that will be used for compression
@@ -111,13 +111,13 @@ int main(int argc, char* argv[])
 			if (remainingBits == 0)
 			{
 				OutputValue(printableValue, compressedDataToWrite);											//If there are no remaining bits, then output the value to the binary file
-				printableValue = 0;																			//Reset the variables and get ready for next iteration
+				printableValue = 0;																			//Reset the variables and get ready for the next iteration
 				remainingBits = binaryOutputLength;
 			}
 		}
 		else
 		{
-			tempValue = RIGHT_SHIFT_BY_BITS(quantumNumber, (compressionBitLength - remainingBits));			//Right shift or scrap the current read data by some number of bits. It will then be used for merging with the previously saved data.
+			tempValue = RIGHT_SHIFT_BY_BITS(quantumNumber, (compressionBitLength - remainingBits));			//Right shift or scrap the currently read data by some number of bits. It will then be used for merging with the previously saved data.
 			printableValue = APPEND_DATA(printableValue, tempValue);										//OR the previous data or merge the previous data with the new data to get the printable value
 			OutputValue(printableValue, compressedDataToWrite);												//Output the printable value to the binary file
 			printableValue = LEFT_SHIFT_BY_BITS(quantumNumber, (binaryOutputLength - (compressionBitLength - remainingBits)));	//Make space or left shift by the number of bits for the upcoming value
@@ -137,7 +137,7 @@ int main(int argc, char* argv[])
 /*
 *	Function:OutputValue
 *	-----------------------------------
-*	Description: writes an unsigned short value into the binary file
+*	Description: Writes an unsigned short value into the binary file
 *	Parameters:
 *				printableValue = the compressed value to be outputted to the binary file
 *				compressedDataToWrite = the file pointer of the binary file
