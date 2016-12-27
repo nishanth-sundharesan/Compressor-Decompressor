@@ -35,7 +35,8 @@ The "DeCompressor.c" will read the vert binary data and recreates the verts inpu
 
 The "DeCompressor.c" will then output the RMS error values for bit values between 5 and 16.  
 
-A graph in excel is then created manually for the outputted RMS eror values.
+A graph in excel is then created manually for the outputted RMS eror values.  
+
 ---
 
 #### In summary:
@@ -53,6 +54,7 @@ A graph in excel is then created manually for the outputted RMS eror values.
  - The whole process is automated with a batch file that sequentially runs both the programs from the DOS command line.
 
 This was part of the assignment at FIEA.  
+
 ---
 
 #### FAQ for the assignment.
@@ -76,7 +78,8 @@ This was part of the assignment at FIEA.
  - Yes
 
 7. How do we compute root mean square error?  
- - Look it up.
+ - Look it up.  
+
 ---
 
 #### The following question was also asked as part of the assignment.
