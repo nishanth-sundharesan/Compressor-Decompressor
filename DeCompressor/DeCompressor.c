@@ -1,3 +1,9 @@
+/*
+*	This program reads the compressed data which was outputted by the program "Compressor.c".
+*	It then decompresses the data(every floating point value), compares it with the original data(floating point value) and calculates the RMS error value for that data. 
+*	After decompressing all the data, it outputs the 'Number of bits each floating point value was compressed to', 'RMS Error value for the entire decompressed dataset' and the 'Compressed file size in bytes' to the .csv file.  
+*/
+
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
